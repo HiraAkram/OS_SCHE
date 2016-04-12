@@ -1,0 +1,54 @@
+import time
+if __name__=="__main__":
+	count=0
+	t=0
+	rem=0
+	s=0
+	j=0
+	i=0
+	k=0
+	l=0
+	et=0
+	wt=0
+	tt=0
+	f=0
+	a=0		
+	dict=[]    
+	remt=[]
+	infile=open('f2','r')
+        data=infile.readline().split()
+        while data:
+                count=count+1
+                d={}
+                d[data[-6]]=data[-5]
+                d[data[-4]]=data[-3]
+                d[data[-2]]=data[-1]
+                dict.append(d)
+                data=infile.readline().split()
+	print count
+	while k<count:
+		a=int(dict[k]["bt"])
+		remt.append(a)
+		k=k+1
+		print remt
+	remt.append(99999)
+	j=count-1
+	while rem!=count:
+		s=j
+		l=0
+		while l<count:
+			if int(dict[l]["at"])<=t and remt[l]<remt[s] and remt[l]>0:
+				s=l
+			l=l+1
+		remt[s]=remt[s]-1
+		if remt[s]==0:
+			rem=rem+1
+			et=t+1
+			print s
+			print dict[s]["pn"]
+			f=int(dict[s]["bt"])
+			time.sleep(f)
+			print "executed"
+			dict[s]["wt"]=et-int(dict[s]["bt"])-int(dict[s]["at"])	
+			dict[s]["tt"]=et-int(dict[s]["at"])
+		t=t+1
