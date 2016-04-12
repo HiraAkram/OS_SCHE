@@ -1,0 +1,35 @@
+import time
+if __name__=="__main__":
+        count=0
+	dict=[]
+        l=0
+	i=0
+	j=0
+	t=0
+	st=0
+	wt=0
+	tt=0
+	infile=open('f2','r')
+        data=infile.readline().split()
+        while data:
+		count=count+1
+		d={}
+		d[data[-6]]=data[-5]
+		d[data[-4]]=data[-3]
+		d[data[-2]]=data[-1]
+		dict.append(d)
+		data=infile.readline().split()	
+	while i<count:
+		j=int(dict[i]["bt"])
+		time.sleep(j)
+		while l<i:
+			t=t+int(dict[l]["bt"])
+			l=l+1
+		print dict[i]["pn"],":execution completed"
+		wt=st-int(dict[i]["at"])
+		tt=st+int(dict[i]["bt"])-int(dict[i]["at"])
+		dict[i]["wt"]=wt
+		dict[i]["tt"]=tt
+		st=t
+		i=i+1	
+	print dict
