@@ -1,0 +1,47 @@
+import time
+if __name__ == "__main__" :
+	      i=0
+        ct=0
+        f=0
+	      count=0
+	      a=0
+        m=0
+        j=0
+        ind=0
+        k=0
+        dict=[]
+	      sa=[]
+        sb=[]
+        infile=open('f2','r')
+	data=infile.readline().split()
+	while data:
+		count=count+1	
+		d={}
+		d[data[-6]]=data[-5]
+		d[data[-4]]=data[-3]
+		d[data[-2]]=data[-1]
+		dict.append(d)
+		data=infile.readline().split()
+	sa=sorted(dict, key = lambda k: k['bt'])
+	while k<count:
+		a=0
+		sb=sorted(sa, key = lambda k: int(k["bt"]))
+		m=0
+		sa=sb
+		while a==0 and m<count :
+			if int(sb[m]["at"])<ct:
+				i=m
+				a=1
+			m=m+1
+		f=int(sb[i]["bt"])
+		time.sleep(f)
+		print sb[i]["pn"]
+		print "executed"
+		print "wt"
+		print (ct-int(sb[i]["at"]))
+		ct=ct+int(sb[i]["bt"])
+		print "tt"
+		print (ct-int(sb[i]["at"]))
+		sa[i]["bt"]='99'
+		sb[i]["bt"]='99'
+		k=k+1
